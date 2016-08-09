@@ -2,7 +2,7 @@
 Summary fo Deploy Node.js+NginX on Linux .
 #前言
 ### 本文档主要记录在全新Linux环境上搭建基本Node服务器的过程，主要内容包括：
-###       1.基本linux环境的构建（用户，环境变量等）
+       ###1.基本linux环境的构建（用户，环境变量等）
 ###       2.NginX服务器的安装
 ###       3.Node.js部署
 ###       4.数据库安装
