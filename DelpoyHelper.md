@@ -12,9 +12,26 @@ Summary fo Deploy Node.js+NginX on Linux .
 #修订记录
 </br>
 #1.1基本linux环境的构建
-本次安装使用的是suse12的云linux环境，无任何预装应用。</br>
+本次安装使用的是CentOS的云linux环境，无任何预装应用。</br>
 为安全考虑，应使用单独用户来部署服务器，不应用root用户直接进行操作。
 ##1.1.1用户创建
 #####使用root用户远程登录云单板:ssh root@xxx.xxx.xxx.xxx 
-#####创建新用户：使用adduser命令，详见<http://blog.csdn.net/beitiandijun/article/details/41678251> </br>
+#####创建新用户：使用useradd命令，再使用passwd命令修改用户密码。详见<http://blog.csdn.net/beitiandijun/article/details/41678251> </br>
 #####创建用户后最好检查环境变量的path是否包含所有bash目录，否则会有部分命令找不到，可对比root用户的path.修改方法参见：<http://sunnylocus.iteye.com/blog/323354>
+#2.1 NginX服务器的安装
+##2.1.1 检查安装环境  
+#####1.下载nginx安装包并使用ftp传至linux环境，解压。  
+初始申请的linux只装有基本的linux系统软件，甚至连基本的gcc程序都没有，所以在正式安装Nginx前还需安装配置好nginx依赖的软件。  
+Nginx依赖：gcc,pcre,openssl,zlib。  
+若不确定依赖是否ok，可使用which命令查看PATH下是否有对应可执行文件，或先执行nginx的configure检查环境配置。
+#####2.安装依赖  
+本次安装使用CentOS的yum方便快捷的安装nginx的所有依赖，命令如下(使用root执行)： 
+yum -y install gcc;   
+yum -y install gcc-c++；   
+yum -y install pcre-devel；  
+yum -y install openssl;    
+yum -y install zlib-devel；  
+*也可自行下载所有依赖的安装包，自行安装部署在linux上，难度较大，另开文章进行记录*  
+#####3.Nginx解压包的./configure成功生成makefile后表示环境配置ok，建议在configure是带上--prefix=path 来手动配置nginx的安装路径。执行make&make install安装即可。
+#####4.进入nginx的安装目录后可执行sbin/nginx 启动nginx，启动成功后使用浏览器输入linux服务器ip既可看到nginx的默认index页面，至此基本的nginx服务器搭建成功。
+
