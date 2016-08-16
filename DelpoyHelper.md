@@ -44,6 +44,8 @@ yum -y install zlib-devel；
   若已安装则可跳过安装，进行数据库启动。若想卸载则使用:yum -remove 包名 进行删除。   
 2.安装mariadb的服务端和客户端：yum install MariaDB-server MariaDB-client ;   
 3.启动mariadb：service mariadb start /service mysql start   
-4.mariadb兼容mysql所有命令，数据库启动后可使用mysql命令进行操作
+4.mariadb兼容mysql所有命令，数据库启动后可使用mysql命令进行操作  
+
+参考链接：[Centos7安装mariadb](http://blog.csdn.net/heatheryun/article/details/51015354)
 
 
