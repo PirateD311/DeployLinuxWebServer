@@ -37,6 +37,10 @@ yum -y install zlib-devel；
 #####5.初始环境常用配置
 ###### ·在基本环境配置时，可根据使用喜欢进行一些常用命令的别名设置，长久生效方法为在用户home目录下的.bashrc文件中加入alias命令  
 #3.1 Node.js部署
+#####node.js的部署较为简单，主要步骤如下：   
+1.从node官网获取对应操作系统的最新安装包，本次部署使用linux-64位的安装包，不使用源码包进行编译安装。
+2.将安装包传至linux并解压既已完成初步安装，最新node包采用.xz的压缩方式，解压方式为：xz - d **.xz ;tar -xvf **.tar    
+3.在node解压目录的bin目录下执行./node -v 检查node是否运行ok。出现node版本号说明安装成功，此时建议在用户的PATH下添加node/bin目录，或在PATH下创建node和npm命令的软连接，方便node及npm命令的使用。  
 #4.1 数据库安装
 ######由于oracle收购mysql后可能会在后续将mysql闭源，社区为规避mysql闭源的风险，在mysql基础上拉了分支，既mariaDB，完全兼容mysql，目前google、Facebook等都已切换至mariadb。本次所用linux环境为Centos7，此版本yum的软件库已移除mysql-server，故推荐直接安装mariadb。
 使用yum进行mariadb安装非常方便，步骤如下：  
