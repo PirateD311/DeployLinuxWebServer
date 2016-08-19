@@ -49,7 +49,19 @@ yum -y install zlib-devel；
 2.安装mariadb的服务端和客户端：yum install MariaDB-server MariaDB-client ;   
 3.启动mariadb：service mariadb start /service mysql start   
 4.mariadb兼容mysql所有命令，数据库启动后可使用mysql命令进行操作  
+##### 数据库安装成功后应进行一些基本配置。
+###### 修改root用户密码:使用mysqladmin -u root -p 命令为root用户设置密码。
+###### 添加用户：1.使用root用户进入mysql数据库，在user表中添加用户信息，用户名、密码、权限等。
+######    2.使用GRANT命令。
+`root@host# mysql -u root -p password;
+Enter password:*******
+mysql> use mysql;
+mysql> GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,DROP
+    -> ON TUTORIALS.*
+    -> TO 'zara'@'localhost'
+    -> IDENTIFIED BY 'zara123';`   
 
-参考链接：[Centos7安装mariadb](http://blog.csdn.net/heatheryun/article/details/51015354)
+参考链接：[Centos7安装mariadb](http://blog.csdn.net/heatheryun/article/details/51015354)   
+[mysql管理](http://www.runoob.com/mysql/mysql-administration.html)
 
 
